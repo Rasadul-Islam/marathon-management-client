@@ -4,9 +4,19 @@ import { FiLogOut } from "react-icons/fi";
 import { NavLink } from "react-router-dom";
 import AuthContext from "../../../context/AuthContext/AuthContext";
 
-const Navbar = ({user, onLogout }) => {
+const Navbar = () => {
 
-    // const {user} = useContext(AuthContext);
+    const {user, logOutUser} = useContext(AuthContext);
+
+    const handleLogOut =()=> {
+        logOutUser()
+        .then(()=>{
+            console.log('successfully Log Out')
+        })
+        .catch(error=>{
+            console.log('failed to Log Out')
+        })
+    }
 
     const activeButtonClass = "btn bg-lime-300 border-none hover:text-gray-600 text-base md:text-lg";
     const buttonClass = "btn border-none hover:text-gray-600 text-base md:text-lg";
@@ -30,7 +40,7 @@ const Navbar = ({user, onLogout }) => {
                             className="w-12 h-12 rounded-full bg-gray-200"
                         />
                         <button
-                            onClick={onLogout}
+                            onClick={handleLogOut}
                             className="btn border-none text-base md:text-lg hover:bg-red-500 hover:text-white flex gap-2 justify-center items-center font-bold"
                         >
                         <FiLogOut/> Logout

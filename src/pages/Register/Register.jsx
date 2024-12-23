@@ -1,7 +1,7 @@
 import Lottie from 'lottie-react';
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import registerLottie from '../../assets/lottie/Animation - 1734886311960.json'
+import registerLottie from '../../assets/lottie/register.json'
 import Swal from 'sweetalert2';
 import AuthContext from '../../context/AuthContext/AuthContext';
 
@@ -95,7 +95,7 @@ const Register = () => {
                     <div className="form-control mt-6">
                         <input type="submit" value="Register" className='btn bg-lime-300 border-2 border-gray-400 font-bold text-lg' />
                     </div>
-                    <h1 className='mt-5'>Already have an account? <Link to="/login" className='font-bold'>LogIn</Link></h1>
+                    <h1 className='mt-5'>Already have an account? <Link to="/login" className='font-bold'>LogIn.</Link></h1>
                 </form>
             </div>
 
