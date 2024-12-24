@@ -25,7 +25,7 @@ const Navbar = () => {
         <nav className="bg-gray-500 text-white px-5 py-4 flex justify-between items-center">
             {/* Left Side: Logo */}
             <div>
-                <NavLink to="/" className=" flex gap-4 text-2xl md:text-4xl font-bold"><GiRun />RunWay </NavLink>
+                <NavLink to="/" className=" flex gap-2 text-2xl md:text-4xl font-bold"><GiRun />RunWay </NavLink>
             </div>
 
             {/* Right Side: Links */}

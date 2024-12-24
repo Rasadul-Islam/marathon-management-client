@@ -1,52 +1,75 @@
 import Lottie from 'lottie-react';
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import loginLottie from '../../assets/lottie/login.json'
+import loginLottie from '../../assets/lottie/login.json';
 import AuthContext from '../../context/AuthContext/AuthContext';
 
-
 const LogIn = () => {
+    const { logInUser, logInWithGoogle } = useContext(AuthContext);
 
+    // Handle Google Sign-In
+    const handleGoogleLogIn = () => {
+        logInWithGoogle()
+            .then((result) => {
+                console.log("Google LogIn Successful", result.user);
+                // You can redirect or handle user data here
+            })
+            .catch((error) => {
+                console.error("Google LogIn Error:", error);
+            });
+    };
 
-    const {logInUser} = useContext(AuthContext);
-
-    const handleLogIn= e =>{
+    // Handle email and password LogIn
+    const handleLogIn = (e) => {
         e.preventDefault();
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-        
 
         logInUser(email, password)
-        .then (result =>{
-            console.log("logIn", result.user)
-        })
-        .catch(error=>{
-            console.log(error);
-        })
-    }
-
+            .then((result) => {
+                console.log("LogIn Successful", result.user);
+                // You can redirect or handle user data here
+            })
+            .catch((error) => {
+                console.error("LogIn Error:", error);
+            });
+    };
 
     return (
-        <div className="flex flex-col md:flex-row justify-center items-center bg-base-200 gap-0 p-10 ">
+        <div className="flex flex-col md:flex-row justify-center items-center bg-base-200 gap-0 p-10">
             <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl p-10 md:my-20">
                 <form onSubmit={handleLogIn} className="">
-                    <h1 className='text-2xl font-bold mb-5'>LogIn:</h1>
+                    <h1 className="text-2xl font-bold mb-5">LogIn:</h1>
+                    {/* google logIn botton */}
+                    <div className="form-control mt-6">
+                        <button
+                            onClick={handleGoogleLogIn}
+                            className="btn bg-transparent font-semibold text-lg"
+                        >
+                            <img src="https://i.ibb.co.com/ZdHFgMk/png-clipart-google-google.png" alt="Google Logo" className='w-8 h-8 bg-transparent rounded-full' />
+                            <h1>Sign in with Google</h1>
+                        </button>
+                        <h1 className='divider my-5'>Or</h1>
+                    </div>
+                    {/* email, password logIn form */}
                     <div className="form-control">
                         <label className="text-lg font-semibold mb-2">Email</label>
-                        <input type="email" name='email' placeholder="email" className="input input-bordered" required />
+                        <input type="email" name="email" placeholder="Email" className="input input-bordered" required />
                     </div>
                     <div className="form-control">
                         <label className="text-lg font-semibold mb-2">Password</label>
                         <input type="password" name="password" placeholder="Password" className="input input-bordered" required />
                     </div>
                     <div className="form-control mt-6">
-                        <input type="submit" value="LogIn" className='btn bg-lime-300 border-2 border-gray-400 font-bold text-lg' />
+                        <input type="submit" value="LogIn" className="btn bg-lime-300 border-2 border-gray-400 font-bold text-lg" />
                     </div>
-                    <h1 className='mt-5'>Don't you have an account? <Link to="/register" className='font-bold'>Register.</Link></h1>
+                    <h1 className="mt-5">
+                        Don't you have an account? <Link to="/register" className="font-bold">Register.</Link>
+                    </h1>
                 </form>
             </div>
-            <div className='w-full md:w-96'>
+            <div className="w-full md:w-96">
                 <Lottie animationData={loginLottie}></Lottie>
             </div>
         </div>
