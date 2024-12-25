@@ -1,40 +1,72 @@
 import Lottie from 'lottie-react';
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import loginLottie from '../../assets/lottie/login.json';
 import AuthContext from '../../context/AuthContext/AuthContext';
+import Swal from 'sweetalert2';
 
 const LogIn = () => {
+
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from= location?.state || '/'
+    console.log(from)
     const { logInUser, logInWithGoogle } = useContext(AuthContext);
 
     // Handle Google Sign-In
-    const handleGoogleLogIn = () => {
-        logInWithGoogle()
-            .then((result) => {
-                console.log("Google LogIn Successful", result.user);
-                // You can redirect or handle user data here
-            })
-            .catch((error) => {
-                console.error("Google LogIn Error:", error);
-            });
-    };
+    const handleGoogleLogIn= async()=>{
+        try{
+            await logInWithGoogle()
+            Swal.fire({
+                position: "top-center",
+                icon: "success",
+                title: "LogIn Successful",
+                showConfirmButton: false,
+                timer: 1000
+              });
+            navigate(from, {replace:true})            
+        }
+        catch(error){
+            console.log(error)
+            Swal.fire({
+                position: "top-center",
+                icon: "error",
+                title: "LogIn Faild",
+                showConfirmButton: false,
+                timer: 1000
+              });
+        }
+    }
 
     // Handle email and password LogIn
-    const handleLogIn = (e) => {
+    const handleLogIn= async e=>{
         e.preventDefault();
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
+        try{
+            await logInUser(email, password)
+            Swal.fire({
+                position: "top-center",
+                icon: "success",
+                title: "LogIn Successful",
+                showConfirmButton: false,
+                timer: 1000
+              });
+            navigate(from, {replace:true})            
+        }
+        catch(error){
+            console.log(error)
+            Swal.fire({
+                position: "top-center",
+                icon: "error",
+                title: "LogIn Faild",
+                showConfirmButton: false,
+                timer: 1000
+              });
+        }
+    }
 
-        logInUser(email, password)
-            .then((result) => {
-                console.log("LogIn Successful", result.user);
-                // You can redirect or handle user data here
-            })
-            .catch((error) => {
-                console.error("LogIn Error:", error);
-            });
-    };
 
     return (
         <div className="flex flex-col md:flex-row justify-center items-center bg-base-200 gap-0 p-10">
