@@ -61,8 +61,9 @@ const LogIn = () => {
                 position: "top-center",
                 icon: "error",
                 title: "LogIn Faild",
+                text:"Check your Email or Password and try again",
                 showConfirmButton: false,
-                timer: 1000
+                timer: 2000
               });
         }
     }
