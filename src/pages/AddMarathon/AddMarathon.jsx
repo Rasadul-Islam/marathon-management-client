@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import AuthContext from '../../context/AuthContext/AuthContext';
+import Swal from 'sweetalert2';
 
 
 const AddMarathon = () => {
@@ -25,9 +26,36 @@ const AddMarathon = () => {
         const description = form.description.value;
         const photoURL = form.photoURL.value;
 
-        const addMarathonData ={title, marathonPublisher:{userName, userEmail, userPhoto: user.photoURL} , marathonDitails, startRegistration, endRegistration, startMarathon, location, runningDistance, description, photoURL }
+        const newMarathon ={title, userName, userEmail , marathonDitails, startRegistration, endRegistration, startMarathon, location, runningDistance, description, photoURL}
 
-        console.log(addMarathonData);
+        console.log(newMarathon);
+
+
+        // send data to the server
+        fetch('http://localhost:5000/marathons',{
+            method:'POST',
+            headers:{
+                'content-type':'application/json'
+            },
+            body: JSON.stringify(newMarathon)
+        })
+        .then(res=>res.json())
+        .then(data=> {
+            console.log(data)
+            if(data.insertedId){
+                Swal.fire({
+                    title: "Good job!",
+                    text: "Your Marathon Successfully added!",
+                    icon: "success"
+                  });
+            }else{
+                Swal.fire({
+                    title: "Opps!",
+                    text: "There is some problem!",
+                    icon: "error"
+                  });
+            }
+        })
         
     }
 
