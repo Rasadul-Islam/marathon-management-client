@@ -9,10 +9,11 @@ import ErrorPage from "../Components/ErrorPage";
 import Marathons from "../pages/Marathons/Marathons";
 import Dashboard from "../pages/Dashboard/Dashboard";
 import PrivateRoute from "./PrivateRoute";
-import UpdateMarathon from "../pages/shared/UpdateMarathon/UpdateMarathon";
+import UpdateMarathon from "../pages/UpdateMarathon/UpdateMarathon";
 import AddMarathon from "../pages/AddMarathon/AddMarathon";
 import MyApplyList from "../pages/MyApplyList/MyApplyList";
 import MyMarathonList from "../pages/Marathons/MyMarathonList";
+import MarathonDitails from "../pages/MarathonDitails/MarathonDitails";
 
 const router = createBrowserRouter([
     {
@@ -51,6 +52,16 @@ const router = createBrowserRouter([
                         <UpdateMarathon></UpdateMarathon>
                     </PrivateRoute>
                 ) ,
+            },
+            {
+                path:'/marathonDitails/:id',
+                element: (
+                    <PrivateRoute>
+                        <MarathonDitails></MarathonDitails>
+                    </PrivateRoute>
+                ) ,
+                loader: ({ params }) =>fetch(
+                    `http://localhost:5000/marathons/${params.id}`),
             },
             {
                 path:'/add-marathon',

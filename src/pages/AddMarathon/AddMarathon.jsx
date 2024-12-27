@@ -3,6 +3,7 @@ import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import AuthContext from '../../context/AuthContext/AuthContext';
 import Swal from 'sweetalert2';
+import  axios  from 'axios';
 
 
 const AddMarathon = () => {
@@ -15,48 +16,52 @@ const AddMarathon = () => {
         event.preventDefault()
         const form = event.target;
         const userName = user?.displayName;
-        const  userEmail= user.email;
-        const title  = form.marathonTitle.value;
-        const marathonDitails  = form.marathonDitails.value;
-        const startRegistration  = startRegDate;
-        const endRegistration = endRegDate;
-        const startMarathon = marathonStartDate;
-        const location  = form.location.value;
+        const userEmail = user.email;
+        const title = form.marathonTitle.value;
+        const marathonDitails = form.marathonDitails.value;
+        const startRegistration = form.startRegistrationDate.value;
+        const endRegistration = form.endRegistrationDate.value;
+        const startMarathon = form.marathonStartDate.value;
+        const location = form.location.value;
         const runningDistance = form.runningDistance.value;
         const description = form.description.value;
         const photoURL = form.photoURL.value;
 
-        const newMarathon ={title, userName, userEmail , marathonDitails, startRegistration, endRegistration, startMarathon, location, runningDistance, description, photoURL}
-
-        console.log(newMarathon);
+        const newMarathon = { title, userName, userEmail, marathonDitails, startRegistration, endRegistration, startMarathon, location, runningDistance, description, photoURL, apply_count: 0, }
 
 
-        // send data to the server
-        fetch('http://localhost:5000/marathons',{
-            method:'POST',
-            headers:{
-                'content-type':'application/json'
+
+        // send marathon data to the server
+        fetch(`${import.meta.env.VITE_API_URL}/marathons`, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
             },
             body: JSON.stringify(newMarathon)
         })
-        .then(res=>res.json())
-        .then(data=> {
-            console.log(data)
-            if(data.insertedId){
-                Swal.fire({
-                    title: "Good job!",
-                    text: "Your Marathon Successfully added!",
-                    icon: "success"
-                  });
-            }else{
-                Swal.fire({
-                    title: "Opps!",
-                    text: "There is some problem!",
-                    icon: "error"
-                  });
-            }
-        })
-        
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: "Good job!",
+                        text: "Your Marathon Successfully added!",
+                        icon: "success"
+                    });
+                } else {
+                    Swal.fire({
+                        title: "Opps!",
+                        text: "There is some problem!",
+                        icon: "error"
+                    });
+                }
+            })
+
+
+        // make post request by axios
+
+        // const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/marathons`, newMarathon)
+
     }
 
     return (
