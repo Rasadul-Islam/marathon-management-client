@@ -27,6 +27,7 @@ const Navbar = () => {
 
     const { user, logOutUser } = useContext(AuthContext);
 
+    // User LogOut function
     const handleLogOut = () => {
         logOutUser()
             .then(() => {
@@ -51,12 +52,7 @@ const Navbar = () => {
             {/* Right Side: Links */}
             <div className="flex gap-5">
                 <div ref={menuRef} className={`flex flex-col gap-2 absolute z-10 right-5 top-20 md:relative md:top-0`}>
-                    <ul className={`flex flex-col gap-2 md:absolute md:top-20 md:-right-20 ${open ? "block" : "hidden"
-                        }`}>
-                        <li><NavLink to='/add-marathon' className={buttonClass}>Add Marathon</NavLink></li>
-                        <li><NavLink to='/my-marathon-list' className={buttonClass}>My Marathon List</NavLink></li>
-                        <li><NavLink to='/my-apply' className={buttonClass}>My Apply List</NavLink></li>
-                    </ul>
+                    
                     <div className={`flex flex-col gap-2 md:flex-row ${open ? "block" : "hidden md:flex"
                         }`}>
                         <NavLink to="/marathons" className={({ isActive }) => (isActive ? activeButtonClass : buttonClass)}>Marathons</NavLink>

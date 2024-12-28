@@ -3,7 +3,9 @@ import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import AuthContext from '../../context/AuthContext/AuthContext';
 import Swal from 'sweetalert2';
-import  axios  from 'axios';
+import { IoMdArrowRoundBack } from "react-icons/io";
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 
 const AddMarathon = () => {
@@ -67,7 +69,11 @@ const AddMarathon = () => {
     return (
         <div className='container mx-auto flex flex-col  items-center my-5'>
             <form onSubmit={handleSubmit} className="card-body w-3/4 max-w-xl lg:max-w-5xl rounded-lg shadow-xl border-2 border-purple-200 shadow-purple-300 grid grid-cols-1 lg:grid-cols-2 gap-5">
-                <h1 className='text-3xl font-bold text-center text-purple-400 mt-1 lg:col-span-2'>Add Marathons</h1>
+                <div className='flex lg:col-span-2 items-center '>
+                    <Link to='/dashboard' className='text-3xl p-2'><IoMdArrowRoundBack /></Link>
+                    <h1 className='text-3xl font-bold text-center text-purple-400 mt-1 lg:col-span-2 mx-auto'>Add Marathons</h1>
+                </div>
+
                 {/* Marathon Title */}
                 <div className="flex flex-col mt-1">
                     <label className="label text-xl">Marathon Title:</label>
