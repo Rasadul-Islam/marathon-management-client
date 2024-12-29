@@ -4,16 +4,17 @@ import Marathons from '../Marathons/Marathons';
 import TrainingTips from '../../Components/TrainingTips';
 import WhyRunWithUs from '../../Components/WhyRunWithUs';
 import SponsorsSection from '../../Components/SponsorsSection';
+import UpcomingMarathons from '../../Components/UpcomingMarathons';
 
 const Home = () => {
     return (
         <div>
             <Banner></Banner>
             <Marathons></Marathons>
+            <UpcomingMarathons></UpcomingMarathons>
             <TrainingTips></TrainingTips>
             <WhyRunWithUs></WhyRunWithUs>
             <SponsorsSection></SponsorsSection>
-
         </div>
     );
 };
