@@ -29,7 +29,7 @@ const AddMarathon = () => {
         const description = form.description.value;
         const photoURL = form.photoURL.value;
 
-        const newMarathon = { title, userName, userEmail, marathonDitails, startRegistration, endRegistration, startMarathon, location, runningDistance, description, photoURL, apply_count: 0, }
+        const newMarathon = { title, userName, userEmail, marathonDitails, startRegistration, endRegistration, startMarathon, location, runningDistance, description, photoURL, apply_count: 0, createdAt: new Date(), }
 
 
 
@@ -77,7 +77,7 @@ const AddMarathon = () => {
                 {/* Marathon Title */}
                 <div className="flex flex-col mt-1">
                     <label className="label text-xl">Marathon Title:</label>
-                    <input type="text" name='marathonTitle' placeholder="Marathon Title" className="input input-bordered max-w-xs ml-16" required />
+                    <input type="text" name='marathonTitle' placeholder="Marathon Title" className="input input-bordered max-w-xs ml-16 capitalize" required />
                 </div>
                 {/* Marathon ditails */}
                 <div className="flex flex-col mt-1">
@@ -89,9 +89,9 @@ const AddMarathon = () => {
                     <label className="label text-xl">Start Registration Date :</label>
                     <DatePicker
                         className='input input-bordered max-w-xs ml-16'
-                        selected={startRegDate} // Bind the selected date
-                        onChange={date => setStartRegDate(date)} // Handle date change
-                        dateFormat="dd/MM/yyyy"
+                        selected={startRegDate} 
+                        onChange={date => setStartRegDate(date)} 
+                        dateFormat="MM/dd/yyyy"
                         name='startRegistrationDate'
                     />
                 </div>
@@ -100,9 +100,9 @@ const AddMarathon = () => {
                     <label className="label text-xl">End Registration Date :</label>
                     <DatePicker
                         className='input input-bordered max-w-xs ml-16'
-                        selected={endRegDate} // Bind the selected date
-                        onChange={date => setEndRegDate(date)} // Handle date change
-                        dateFormat="dd/MM/yyyy"
+                        selected={endRegDate} 
+                        onChange={date => setEndRegDate(date)} 
+                        dateFormat="MM/dd/yyyy"
                         name='endRegistrationDate'
                     />
                 </div>
@@ -111,9 +111,9 @@ const AddMarathon = () => {
                     <label className="label text-xl">Marathon Start Date :</label>
                     <DatePicker
                         className='input input-bordered max-w-xs ml-16'
-                        selected={marathonStartDate} // Bind the selected date
-                        onChange={date => setMarathonStartDate(date)} // Handle date change
-                        dateFormat="dd/MM/yyyy"
+                        selected={marathonStartDate} 
+                        onChange={date => setMarathonStartDate(date)} 
+                        dateFormat="MM/dd/yyyy"
                         name='marathonStartDate'
                     />
                 </div>
