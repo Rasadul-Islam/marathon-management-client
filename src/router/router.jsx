@@ -35,7 +35,11 @@ const router = createBrowserRouter([
             },
             {
                 path:'/marathons',
-                element: <Marathons></Marathons> ,
+                element: (
+                    <PrivateRoute>
+                        <Marathons></Marathons>
+                    </PrivateRoute>
+                ) ,
             },
             {
                 path:'/dashboard',

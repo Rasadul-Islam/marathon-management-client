@@ -51,14 +51,15 @@ const Navbar = () => {
 
             {/* Right Side: Links */}
             <div className="flex gap-5">
-                <div ref={menuRef} className={`flex flex-col gap-2 absolute z-10 right-5 top-20 md:relative md:top-0`}>
-                    
-                    <div className={`flex flex-col gap-2 md:flex-row ${open ? "block" : "hidden md:flex"
+                <div ref={menuRef} className={`flex flex-col gap-2 absolute z-10 right-5 top-20 lg:relative lg:top-0`}>
+
+                    <div className={`flex flex-col gap-2 lg:flex-row ${open ? "block" : "hidden lg:flex"
                         }`}>
+                        <NavLink to="/" className={({ isActive }) => (isActive ? activeButtonClass : buttonClass)}>Home</NavLink>
                         <NavLink to="/marathons" className={({ isActive }) => (isActive ? activeButtonClass : buttonClass)}>Marathons</NavLink>
                         {user ? (
                             <>
-                                <div className="flex flex-col md:flex-row gap-2">
+                                <div className="flex flex-col lg:flex-row gap-2">
                                     {/* Dashboard button */}
                                     <NavLink
                                         to="/dashboard"
@@ -84,7 +85,7 @@ const Navbar = () => {
                 </div>
                 {/* Hamburger Menu/Profile */}
                 <div
-                    className=""
+                    className="lg:hidden"
                     onClick={() => setOpen(!open)}
                 >
                     {open ? (
@@ -102,6 +103,14 @@ const Navbar = () => {
                             <IoMenu className="bg-gray-200 text-black text-4xl rounded-full w-12 h-12 p-1" />
                         )
                     )}
+                </div>
+                {/* Fixed User Avatar for Large device */}
+                <div className="hidden lg:flex">
+                    <img
+                        src={user?.photoURL || "https://i.ibb.co/61HT020/c-HJpdm-F0-ZS9sci9pb-WFn-ZXMvd2-Vic2l0-ZS8y-MDIz-LTAx-L3-Jt-Nj-A5-LXNvb-Glka-WNvbi13-LTAw-Mi1w-Ln-Bu.jpg"}
+                        alt="user Avatar"
+                        className="w-12 h-12 rounded-full bg-gray-200"
+                    />
                 </div>
             </div>
         </nav>
