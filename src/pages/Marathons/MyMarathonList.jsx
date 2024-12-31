@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import MarathonTableData from '../../Components/MarathonTableData';
 
 const MyMarathonList = () => {
-    const myMarathons = useLoaderData();
+    const loadedMyMarathons = useLoaderData();
+    const [myMarathons, setMyMarathons]=useState(loadedMyMarathons);
 
     return (
         <div className='container max-w-5xl mx-auto my-10'>
@@ -20,7 +21,11 @@ const MyMarathonList = () => {
                     </thead>
                     <tbody>
                         {myMarathons.map((myMarathon) => (
-                            <MarathonTableData key={myMarathon._id} myMarathon={myMarathon}></MarathonTableData>
+                            <MarathonTableData key={myMarathon._id} 
+                            myMarathon={myMarathon} 
+                            myMarathons={myMarathons}
+                            setMyMarathons={setMyMarathons}
+                            ></MarathonTableData>
                         ))}
                     </tbody>
                 </table>

@@ -1,5 +1,5 @@
 import React from 'react';
-import MyRegisterTableData from './MyRegisterTableData';
+import MyRegisterTableData from './MyApplyTableData';
 import { useLoaderData } from 'react-router-dom';
 
 const MyApplyList = () => {
@@ -13,9 +13,7 @@ const MyApplyList = () => {
                     <thead>
                         <tr className='bg-gray-200'>
                             <th className='border border-gray-300 px-4 py-2'>Title</th>
-                            
                             <th className='border border-gray-300 px-4 py-2'>Marathon Start</th>
-                            <th className='border border-gray-300 px-4 py-2'>Marathon Aplly Count</th>
                             <th className='border border-gray-300 px-4 py-2'>Actions</th>
                         </tr>
                     </thead>

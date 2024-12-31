@@ -1,13 +1,14 @@
 import React, { useContext, useEffect } from 'react';
 import DatePicker from 'react-datepicker';
 import { IoMdArrowRoundBack } from 'react-icons/io';
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 import AuthContext from '../../context/AuthContext/AuthContext';
 import Swal from 'sweetalert2';
 
 const MarathonRegister = () => {
     const marathon = useLoaderData();
     const { user } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const { _id, title, startMarathon, } = marathon || {};
     const startMarathonDay = new Date(startMarathon).toLocaleDateString('en-GB')
@@ -47,7 +48,8 @@ const MarathonRegister = () => {
                         icon: "success"
                     });
                     // Refresh the page
-                    window.location.reload();
+                    // window.location.reload();
+                    navigate(`/dashboard/my-apply/${user.email}`);
                 } else {
                     Swal.fire({
                         title: "Opps!",
