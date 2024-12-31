@@ -6,13 +6,11 @@ const MarathonTableData = ({  myMarathon, myMarathons, setMyMarathons}) => {
     const { _id, title, location, runningDistance } = myMarathon;
 
     const handleDelete = _id => {
-        console.log("Delete: ", _id);
         fetch(`http://localhost:5000/marathons/${_id}`, {
             method: 'DELETE',
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 if (data.deletedCount > 0) {
                     Swal.fire({
                         title: "Success!",

@@ -40,7 +40,6 @@ const MarathonRegister = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 if (data.result.insertedId) {
                     Swal.fire({
                         title: "Thank You!",

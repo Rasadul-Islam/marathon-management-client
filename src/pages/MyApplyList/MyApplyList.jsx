@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import MyRegisterTableData from './MyApplyTableData';
 import { useLoaderData } from 'react-router-dom';
 
 const MyApplyList = () => {
-    const myRegisterList = useLoaderData();
+    const loadedRegisterList = useLoaderData();
+    const [myRegisterList, setMyRegisterList] = useState(loadedRegisterList);
 
     return (
         <div className='container max-w-5xl mx-auto my-10'>
@@ -19,7 +20,12 @@ const MyApplyList = () => {
                     </thead>
                     <tbody>
                         {myRegisterList.map((myRegister) => (
-                            <MyRegisterTableData key={myRegister._id} myRegister={myRegister}></MyRegisterTableData>
+                            <MyRegisterTableData
+                                key={myRegister._id}
+                                myRegister={myRegister}
+                                myRegisterList={myRegisterList}
+                                setMyRegisterList={setMyRegisterList}
+                            ></MyRegisterTableData>
                         ))}
                     </tbody>
                 </table>
