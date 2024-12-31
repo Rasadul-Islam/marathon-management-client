@@ -26,8 +26,9 @@ const MarathonRegister = () => {
         const firstName = form.firstName.value;
         const lastName = form.lastName.value;
         const age = form.age.value;
+        const register_id = _id;
 
-        const newMarathonRegister ={marathonTitle, userEmail, marathonStart, contactNumber, firstName, lastName, age}
+        const newMarathonRegister ={marathonTitle, userEmail, marathonStart, contactNumber, firstName, lastName, age, register_id, };
 
         fetch(`${import.meta.env.VITE_API_URL}/marathons-register`, {
             method: 'POST',
@@ -39,12 +40,14 @@ const MarathonRegister = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
-                if (data.insertedId) {
+                if (data.result.insertedId) {
                     Swal.fire({
                         title: "Thank You!",
                         text: "Your Marathon Register Successfully added!",
                         icon: "success"
                     });
+                    // Refresh the page
+                    window.location.reload();
                 } else {
                     Swal.fire({
                         title: "Opps!",

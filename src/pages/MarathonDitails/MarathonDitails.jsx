@@ -5,25 +5,26 @@ import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 const MarathonDitails = () => {
     const marathon = useLoaderData();
     const { _id, title, marathonDitails, startRegistration, endRegistration, startMarathon, location, runningDistance, description, photoURL, apply_count } = marathon || {};
-    const startRegDay = new Date(startRegistration).toLocaleDateString('en-GB')
-    const endRegDay = new Date(endRegistration).toLocaleDateString('en-GB')
-    const startMarathonDay = new Date(startMarathon).toLocaleDateString('en-GB')
-    
+    const startRegDay = new Date(startRegistration).toLocaleDateString('en-GB');
+    const endRegDay = new Date(endRegistration).toLocaleDateString('en-GB');
+    const startMarathonDay = new Date(startMarathon).toLocaleDateString('en-GB');
 
-   const navigate = useNavigate()
+    const navigate = useNavigate();
+
+    const startRegTime = new Date(startRegistration).getTime();
+    const endRegTime = new Date(endRegistration).getTime();
+    const currentTime = new Date().getTime();
+
+    // Check if registration is open
+    const isRegistrationOpen = startRegTime < currentTime && currentTime < endRegTime;
 
     const registerButtonHandle = () => {
-        const startRegDay = new Date(startRegistration).getTime()
-        const endRegDay = new Date(endRegistration).getTime()
-        const currentDate = new Date().getTime()
-      console.log("click");
-        if(startRegDay<currentDate && currentDate<endRegDay){
-          navigate(`/marathon-register/${_id}`)
-        }else{
-          alert("Registration Not Valid")
+        if (isRegistrationOpen) {
+            navigate(`/marathon-register/${_id}`);
+        } else {
+            alert("Registration Not Valid");
         }
-
-    }
+    };
 
     return (
         <div className="container card bg-gray-100 shadow-xl border-2 border-gray-500 mx-auto my-10">
@@ -47,7 +48,10 @@ const MarathonDitails = () => {
                 <Link to='/marathons' className='btn  border-2 border-gray-400 font-bold text-lg my-10'>
                     <IoMdArrowRoundBack /> Back
                 </Link>
-                <button  onClick={registerButtonHandle} className='btn bg-lime-300 border-2 border-gray-400 font-bold text-lg  my-10'>
+                <button
+                    onClick={registerButtonHandle}
+                    disabled={!isRegistrationOpen} // Button is disabled when registration is not open
+                    className={`btn border-2 font-bold text-lg my-10 ${isRegistrationOpen ? 'bg-lime-300 border-gray-400' : 'bg-gray-300 border-gray-500 cursor-not-allowed'}`}>
                     Register
                 </button>
             </div>

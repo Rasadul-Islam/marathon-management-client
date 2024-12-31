@@ -8,10 +8,10 @@ const MarathonTableData = ({ myMarathon }) => {
     return (
         <>
             <tr>
-                <td className="border border-gray-300 px-4 py-2 text-base md:text-lg">{title}</td>
-                <td className="border border-gray-300 px-4 py-2">{location}</td>
-                <td className="border border-gray-300 px-4 py-2">{runningDistance} km</td>
-                <td className="border border-gray-300 px-4 py-2 flex flex-col md:flex-row gap-1">
+                <td className="border border-gray-300 px-4 py-2 text-base md:text-lg text-center">{title}</td>
+                <td className="border border-gray-300 px-4 py-2 text-center">{location}</td>
+                <td className="border border-gray-300 px-4 py-2 text-center">{runningDistance} km</td>
+                <td className="border border-gray-300 px-4 py-2 flex flex-col md:flex-row gap-1 justify-center">
                     <button
                         className="btn bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600"
                         onClick={() => setIsUpdateModalOpen(true)}>

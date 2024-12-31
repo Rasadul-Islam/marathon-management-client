@@ -29,7 +29,7 @@ const Dashboard = () => {
                 </Link>
 
                 {/* Card: My Applications */}
-                <Link to="/dashboard/my-apply" className="dashboard-card">
+                <Link to={`/dashboard/my-apply/${user.email}`} className="dashboard-card">
                     <div className="p-5 bg-gray-100 rounded-lg shadow-lg hover:shadow-xl transition">
                         <h2 className="text-xl font-semibold mb-2 text-center">My Applications</h2>
                         <p className="text-center text-gray-600">

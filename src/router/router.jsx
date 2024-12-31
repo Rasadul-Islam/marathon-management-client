@@ -97,12 +97,14 @@ const router = createBrowserRouter([
                     `http://localhost:5000/marathons/${params.email}`),
             },
             {
-                path:'/dashboard/my-apply',
+                path:'/dashboard/my-apply/:email',
                 element: (
                     <PrivateRoute>
                         <MyApplyList></MyApplyList>
                     </PrivateRoute>
                 ) ,
+                loader: ({ params }) =>fetch(
+                    `http://localhost:5000/marathons-register/${params.email}`),
             },
         ]
     },
