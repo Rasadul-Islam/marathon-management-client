@@ -11,12 +11,13 @@ const MarathonDitails = () => {
 
     const navigate = useNavigate();
 
-    const startRegTime = new Date(startRegistration).getTime();
-    const endRegTime = new Date(endRegistration).getTime();
-    const currentTime = new Date().getTime();
+    const currentDate = new Date().setHours(0, 0, 0, 0); // Only the date
+    const startRegDate = new Date(startRegistration).setHours(0, 0, 0, 0);
+    const endRegDate = new Date(endRegistration).setHours(0, 0, 0, 0);
 
     // Check if registration is open
-    const isRegistrationOpen = startRegTime < currentTime && currentTime < endRegTime;
+    const isRegistrationOpen = currentDate >= startRegDate && currentDate <= endRegDate;
+
 
     const registerButtonHandle = () => {
         if (isRegistrationOpen) {
