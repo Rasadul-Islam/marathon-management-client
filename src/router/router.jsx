@@ -14,6 +14,7 @@ import MyApplyList from "../pages/MyApplyList/MyApplyList";
 import MyMarathonList from "../pages/Marathons/MyMarathonList";
 import MarathonDitails from "../pages/MarathonDitails/MarathonDitails";
 import MarathonRegister from "../pages/MarathonRegister/MarathonRegister";
+import DashboardText from "../Components/DashboardText";
 
 const router = createBrowserRouter([
     {
@@ -48,6 +49,44 @@ const router = createBrowserRouter([
                         <Dashboard></Dashboard>
                     </PrivateRoute>
                 ) ,
+                children:[
+                    {
+                        path:'/dashboard',
+                        element: (
+                            <PrivateRoute>
+                                <DashboardText></DashboardText>
+                            </PrivateRoute>
+                        ) ,
+                    },
+                    {
+                        path:'/dashboard/add-marathon',
+                        element: (
+                            <PrivateRoute>
+                                <AddMarathon></AddMarathon>
+                            </PrivateRoute>
+                        ) ,
+                    },
+                    {
+                        path:'/dashboard/my-marathon-list/:email',
+                        element: (
+                            <PrivateRoute>
+                                <MyMarathonList></MyMarathonList>
+                            </PrivateRoute>
+                        ) ,
+                        loader: ({ params }) =>fetch(
+                            `${import.meta.env.VITE_API_URL}/marathons/${params.email}`),
+                    },
+                    {
+                        path:'/dashboard/my-apply/:email',
+                        element: (
+                            <PrivateRoute>
+                                <MyApplyList></MyApplyList>
+                            </PrivateRoute>
+                        ) ,
+                        loader: ({ params }) =>fetch(
+                            `${import.meta.env.VITE_API_URL}/marathons-register/${params.email}`),
+                    },
+                ]
             },
             {
                 path:'/marathonDitails/:id',
@@ -68,34 +107,6 @@ const router = createBrowserRouter([
                 ) ,
                 loader: ({ params }) =>fetch(
                     `${import.meta.env.VITE_API_URL}/marathon/${params.marathonId}`),
-            },
-            {
-                path:'/dashboard/add-marathon',
-                element: (
-                    <PrivateRoute>
-                        <AddMarathon></AddMarathon>
-                    </PrivateRoute>
-                ) ,
-            },
-            {
-                path:'/dashboard/my-marathon-list/:email',
-                element: (
-                    <PrivateRoute>
-                        <MyMarathonList></MyMarathonList>
-                    </PrivateRoute>
-                ) ,
-                loader: ({ params }) =>fetch(
-                    `${import.meta.env.VITE_API_URL}/marathons/${params.email}`),
-            },
-            {
-                path:'/dashboard/my-apply/:email',
-                element: (
-                    <PrivateRoute>
-                        <MyApplyList></MyApplyList>
-                    </PrivateRoute>
-                ) ,
-                loader: ({ params }) =>fetch(
-                    `${import.meta.env.VITE_API_URL}/marathons-register/${params.email}`),
             },
         ]
     },
