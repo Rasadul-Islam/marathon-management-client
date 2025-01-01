@@ -8,7 +8,7 @@ const MyApplyTableData = ({ myRegister, myRegisterList, setMyRegisterList }) => 
 
 
     const handleDelete = _id => {
-        fetch(`http://localhost:5000/marathons-register/${_id}`, {
+        fetch(`${import.meta.env.VITE_API_URL}/marathons-register/${_id}`, {
             method: 'DELETE',
         })
             .then(res => res.json())
@@ -43,7 +43,7 @@ const MyApplyTableData = ({ myRegister, myRegisterList, setMyRegisterList }) => 
 
         const updatedMarathonRegister = { title, contactNumber, firstName, lastName, age };
 
-        fetch(`http://localhost:5000/marathons-register/${_id}`, {
+        fetch(`${import.meta.env.VITE_API_URL}/marathons-register/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

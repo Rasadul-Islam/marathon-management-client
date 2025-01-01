@@ -6,10 +6,9 @@ import Home from "../pages/Home/Home";
 import Register from "../pages/Register/Register";
 import LogIn from "../pages/LogIn/LogIn";
 import ErrorPage from "../Components/ErrorPage";
-import Marathons from "../pages/Marathons/Marathons";
+import Marathons from "../Components/Marathons";
 import Dashboard from "../pages/Dashboard/Dashboard";
 import PrivateRoute from "./PrivateRoute";
-import UpdateMarathon from "../pages/UpdateMarathon/UpdateMarathon";
 import AddMarathon from "../pages/AddMarathon/AddMarathon";
 import MyApplyList from "../pages/MyApplyList/MyApplyList";
 import MyMarathonList from "../pages/Marathons/MyMarathonList";
@@ -51,14 +50,6 @@ const router = createBrowserRouter([
                 ) ,
             },
             {
-                path:'/update-marathon/:id',
-                element: (
-                    <PrivateRoute>
-                        <UpdateMarathon></UpdateMarathon>
-                    </PrivateRoute>
-                ) ,
-            },
-            {
                 path:'/marathonDitails/:id',
                 element: (
                     <PrivateRoute>
@@ -66,7 +57,7 @@ const router = createBrowserRouter([
                     </PrivateRoute>
                 ) ,
                 loader: ({ params }) =>fetch(
-                    `http://localhost:5000/marathon/${params.id}`),
+                    `${import.meta.env.VITE_API_URL}/marathon/${params.id}`),
             },
             {
                 path:'/marathon-register/:marathonId',
@@ -76,7 +67,7 @@ const router = createBrowserRouter([
                     </PrivateRoute>
                 ) ,
                 loader: ({ params }) =>fetch(
-                    `http://localhost:5000/marathon/${params.marathonId}`),
+                    `${import.meta.env.VITE_API_URL}/marathon/${params.marathonId}`),
             },
             {
                 path:'/dashboard/add-marathon',
@@ -94,7 +85,7 @@ const router = createBrowserRouter([
                     </PrivateRoute>
                 ) ,
                 loader: ({ params }) =>fetch(
-                    `http://localhost:5000/marathons/${params.email}`),
+                    `${import.meta.env.VITE_API_URL}/marathons/${params.email}`),
             },
             {
                 path:'/dashboard/my-apply/:email',
@@ -104,7 +95,7 @@ const router = createBrowserRouter([
                     </PrivateRoute>
                 ) ,
                 loader: ({ params }) =>fetch(
-                    `http://localhost:5000/marathons-register/${params.email}`),
+                    `${import.meta.env.VITE_API_URL}/marathons-register/${params.email}`),
             },
         ]
     },

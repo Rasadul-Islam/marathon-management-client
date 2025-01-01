@@ -1,6 +1,6 @@
 import React from 'react';
 import Banner from '../../Components/Banner';
-import Marathons from '../Marathons/Marathons';
+import Marathons from '../../Components/Marathons';
 import TrainingTips from '../../Components/TrainingTips';
 import WhyRunWithUs from '../../Components/WhyRunWithUs';
 import SponsorsSection from '../../Components/SponsorsSection';

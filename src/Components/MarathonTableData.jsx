@@ -12,7 +12,7 @@ const MarathonTableData = ({ myMarathon, myMarathons, setMyMarathons }) => {
 
     // Delete marathon Fuction
     const handleDelete = (_id) => {
-        fetch(`http://localhost:5000/marathons/${_id}`, {
+        fetch(`${import.meta.env.VITE_API_URL}/marathons/${_id}`, {
             method: 'DELETE',
         })
             .then((res) => res.json())
