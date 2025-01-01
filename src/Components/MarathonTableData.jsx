@@ -12,28 +12,48 @@ const MarathonTableData = ({ myMarathon, myMarathons, setMyMarathons }) => {
 
     // Delete marathon Fuction
     const handleDelete = (_id) => {
-        fetch(`${import.meta.env.VITE_API_URL}/marathons/${_id}`, {
-            method: 'DELETE',
-        })
-            .then((res) => res.json())
-            .then((data) => {
-                if (data.deletedCount > 0) {
-                    Swal.fire({
-                        title: 'Success!',
-                        text: 'Your Marathon Has Been Removed!',
-                        icon: 'success',
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!",
+            cancelButtonText: "Cancel",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`${import.meta.env.VITE_API_URL}/marathons/${_id}`, {
+                    method: 'DELETE',
+                })
+                    .then((res) => res.json())
+                    .then((data) => {
+                        if (data.deletedCount > 0) {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your file has been deleted.",
+                                icon: "success",
+                            });
+                            const remaining = myMarathons.filter((myMarathon) => myMarathon._id !== _id);
+                            setMyMarathons(remaining);
+                        } else {
+                            Swal.fire({
+                                title: 'Oops!',
+                                text: 'There is some problem!',
+                                icon: 'error',
+                            });
+                        }
                     });
-                    const remaining = myMarathons.filter((myMarathon) => myMarathon._id !== _id);
-                    setMyMarathons(remaining);
-                } else {
-                    Swal.fire({
-                        title: 'Oops!',
-                        text: 'There is some problem!',
-                        icon: 'error',
-                    });
-                }
-            });
+            } else {
+                Swal.fire({
+                    title: "Cancelled!",
+                    text: "Your data is safe.",
+                    icon: "info",
+                });
+            }
+        });
     };
+    
 
 
     // Update Marathon Informathon

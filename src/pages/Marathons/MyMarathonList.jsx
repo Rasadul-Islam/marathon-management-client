@@ -8,7 +8,7 @@ const MyMarathonList = () => {
 
     return (
         <div className='container max-w-5xl mx-auto my-10'>
-            <h1 className='text-center font-bold text-xl md:text-2xl my-10'>My Marathons Count: {myMarathons.length}</h1>
+            <h1 className='text-center font-bold text-xl md:text-2xl my-10'>My Marathons Post Count: {myMarathons.length}</h1>
             <div className='overflow-x-auto'>
                 <table className='table-auto w-full border-collapse border border-gray-300 mx-auto'>
                     <thead>

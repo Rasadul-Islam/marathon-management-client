@@ -7,29 +7,56 @@ const MyApplyTableData = ({ myRegister, myRegisterList, setMyRegisterList }) => 
 
 
 
-    const handleDelete = _id => {
-        fetch(`${import.meta.env.VITE_API_URL}/marathons-register/${_id}`, {
-            method: 'DELETE',
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data.deletedCount > 0) {
-                    Swal.fire({
-                        title: "Success!",
-                        text: "Your Registration Has Been Removed!",
-                        icon: "success",
+    const handleDelete = (_id) => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!",
+            cancelButtonText: "Cancel",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`${import.meta.env.VITE_API_URL}/marathons-register/${_id}`, {
+                    method: 'DELETE',
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.deletedCount > 0) {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your registration has been removed.",
+                                icon: "success",
+                            });
+                            const remaining = myRegisterList.filter(myRegister => myRegister._id !== _id);
+                            setMyRegisterList(remaining);
+                        } else {
+                            Swal.fire({
+                                title: "Oops!",
+                                text: "There was a problem deleting the data.",
+                                icon: "error",
+                            });
+                        }
+                    })
+                    .catch(() => {
+                        Swal.fire({
+                            title: "Error!",
+                            text: "Failed to delete the registration.",
+                            icon: "error",
+                        });
                     });
-                    const remaining = myRegisterList.filter(myRegister => myRegister._id !== _id);
-                    setMyRegisterList(remaining);
-                } else {
-                    Swal.fire({
-                        title: "Opps!",
-                        text: "There is some problem!",
-                        icon: "error"
-                    });
-                }
-            })
-    }
+            } else {
+                Swal.fire({
+                    title: "Cancelled!",
+                    text: "Your registration is safe.",
+                    icon: "info",
+                });
+            }
+        });
+    };
+    
 
     // Update Apply
     const handleUpdateSubmit = (e) => {
