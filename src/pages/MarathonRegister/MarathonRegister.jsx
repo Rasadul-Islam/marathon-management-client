@@ -48,6 +48,8 @@ const MarathonRegister = () => {
                     });
                     // Refresh the page
                     // window.location.reload();
+
+                    // Redirect to my apply list
                     navigate(`/dashboard/my-apply/${user.email}`);
                 } else {
                     Swal.fire({

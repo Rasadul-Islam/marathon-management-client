@@ -139,7 +139,6 @@ const MarathonTableData = ({ myMarathon, myMarathons, setMyMarathons }) => {
                                     Save
                                 </button>
                             </div>
-
                         </form>
                     </div>
                 </div>
