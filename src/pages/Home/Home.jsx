@@ -5,6 +5,7 @@ import TrainingTips from '../../Components/TrainingTips';
 import WhyRunWithUs from '../../Components/WhyRunWithUs';
 import SponsorsSection from '../../Components/SponsorsSection';
 import UpcomingMarathons from '../../Components/UpcomingMarathons';
+import Contact from '../Contact/Contact';
 
 const Home = () => {
     return (
@@ -15,6 +16,7 @@ const Home = () => {
             <TrainingTips></TrainingTips>
             <WhyRunWithUs></WhyRunWithUs>
             <SponsorsSection></SponsorsSection>
+            <Contact></Contact>
         </div>
     );
 };

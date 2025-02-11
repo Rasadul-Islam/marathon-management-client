@@ -15,6 +15,7 @@ import MyMarathonList from "../pages/Marathons/MyMarathonList";
 import MarathonDitails from "../pages/MarathonDitails/MarathonDitails";
 import MarathonRegister from "../pages/MarathonRegister/MarathonRegister";
 import DashboardText from "../Components/DashboardText";
+import Contact from "../pages/Contact/Contact";
 
 const router = createBrowserRouter([
     {
@@ -40,6 +41,12 @@ const router = createBrowserRouter([
                     <PrivateRoute>
                         <Marathons></Marathons>
                     </PrivateRoute>
+                ) ,
+            },
+            {
+                path:'/contact',
+                element: (
+                        <Contact></Contact>
                 ) ,
             },
             {

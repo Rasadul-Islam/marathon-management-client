@@ -53,7 +53,7 @@ const Navbar = () => {
     const buttonClass = "btn border-none hover:text-gray-600 text-base md:text-lg";
 
     return (
-        <div className="bg-gray-400 fixed top-0 left-0 w-full z-50 bg-transparent backdrop-blur-md backdrop-filter shadow-md">
+        <div className="bg-gray-400 fixed top-0 left-0 w-full z-50 scroll:bg-transparent backdrop-blur-md backdrop-filter shadow-md">
             <nav className="container mx-auto text-white px-2 py-3 flex justify-between items-center">
                 {/* Left Side: Logo */}
                 <div>
@@ -68,6 +68,7 @@ const Navbar = () => {
                             }`}>
                             <NavLink to="/" className={({ isActive }) => (isActive ? activeButtonClass : buttonClass)}>Home</NavLink>
                             <NavLink to="/marathons" className={({ isActive }) => (isActive ? activeButtonClass : buttonClass)}>Marathons</NavLink>
+                            <NavLink to="/contact" className={({ isActive }) => (isActive ? activeButtonClass : buttonClass)}>Contact</NavLink>
                             {user ? (
                                 <>
                                     <div className="flex flex-col lg:flex-row gap-2">

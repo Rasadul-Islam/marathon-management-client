@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
-        <div className='bg-gray-500 py-5'> 
+        <div className='bg-black py-5'> 
             <div className='container mx-auto'>
                 <div className='text-center'>
                     <h1 className='text-2xl md:text-3xl lg:text-4xl font-bold text-white flex justify-center'><GiRun />RunWay </h1>
@@ -16,13 +16,13 @@ const Footer = () => {
                     <div className='text-center'>
                         <h1 className='font-bold text-gray-100 text-lg mb-5 '>Quick Links</h1>
                         <ul className='text-gray-200 flex flex-col gap-1'>
-                            <li><a href='#'>Home</a></li>
-                            <li><a href='#'>All Campaigns</a></li>
-                            <li><a href='#'>My Campaigns</a></li>
-                            <li><a href='#'>My Donations
-                            </a></li>
-                            <li><a href='#'>Contact Us
-                            </a></li>
+                            <li><Link to='/'>Home</Link></li>
+                            <li><Link to='/marathons'>Marathons</Link></li>
+                            <li><Link to='#'>My Campaigns</Link></li>
+                            <li><Link to='/dashboard'>Dashboard
+                            </Link></li>
+                            <li><Link to='#'>Contact Us
+                            </Link></li>
                         </ul>
                     </div>
                     <div className='text-center'>
