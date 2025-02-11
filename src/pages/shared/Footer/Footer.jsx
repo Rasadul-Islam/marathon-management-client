@@ -21,7 +21,7 @@ const Footer = () => {
                             <li><Link to='#'>My Campaigns</Link></li>
                             <li><Link to='/dashboard'>Dashboard
                             </Link></li>
-                            <li><Link to='#'>Contact Us
+                            <li><Link to='/contact'>Contact Us
                             </Link></li>
                         </ul>
                     </div>

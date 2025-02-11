@@ -1,7 +1,16 @@
 import React from "react";
 import { FaFacebook, FaTwitter, FaLinkedin, FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const Contact = () => {
+    const handleSubmit=()=>{
+    
+        Swal.fire({
+            title: "Sent Success!",
+            icon: "success",
+            draggable: true
+          });
+    }
     return (
         <section className="container mx-auto bg-gray-400 py-12 px-6 md:px-16 my-5 mt-20">
             <div className="max-w-5xl mx-auto text-center">
@@ -52,7 +61,7 @@ const Contact = () => {
                                 type="text"
                                 placeholder="Your Name"
                                 className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-lime-300"
-                                required
+                                
                             />
                         </div>
                         <div>
@@ -61,7 +70,7 @@ const Contact = () => {
                                 type="email"
                                 placeholder="Your Email"
                                 className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-lime-300"
-                                required
+                                
                             />
                         </div>
                         <div>
@@ -70,11 +79,12 @@ const Contact = () => {
                                 rows="4"
                                 placeholder="Your Message"
                                 className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:border-lime-300"
-                                required
+                                
                             ></textarea>
                         </div>
                         <button
                             type="submit"
+                            onClick={handleSubmit}
                             className="w-full bg-lime-300 text-gray-900 font-bold py-3 rounded-md hover:bg-lime-400 transition"
                         >
                             Send Message
