@@ -77,7 +77,7 @@ const MarathonTableData = ({ myMarathon, myMarathons, setMyMarathons }) => {
             .then(res => res.json())
             .then(data => {
                 if (data.modifiedCount>0) {
-                    console.log(data);
+                    // console.log(data);
                     Swal.fire({
                         title: "Updated!",
                         text: "Your Marathon Successfully Updated!",

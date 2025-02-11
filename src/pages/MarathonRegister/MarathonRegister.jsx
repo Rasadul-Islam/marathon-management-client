@@ -52,7 +52,7 @@ const MarathonRegister = () => {
                     // Redirect to my apply list
                     navigate(`/dashboard/my-apply/${user.email}`);
                 } else {
-                    Swal.fire({
+                        Swal.fire({
                         title: "Opps!",
                         text: "There is some problem!",
                         icon: "error"

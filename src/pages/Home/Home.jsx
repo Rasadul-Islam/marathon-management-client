@@ -8,7 +8,7 @@ import UpcomingMarathons from '../../Components/UpcomingMarathons';
 
 const Home = () => {
     return (
-        <div>
+        <div className='container mx-auto'>
             <Banner></Banner>
             <Marathons></Marathons>
             <UpcomingMarathons></UpcomingMarathons>

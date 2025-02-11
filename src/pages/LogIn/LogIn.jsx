@@ -10,7 +10,6 @@ const LogIn = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const from= location?.state || '/'
-    console.log(from)
     const { logInUser, logInWithGoogle } = useContext(AuthContext);
 
     // Handle Google Sign-In
@@ -27,7 +26,7 @@ const LogIn = () => {
             navigate(from, {replace:true})            
         }
         catch(error){
-            console.log(error)
+            // console.log(error)
             Swal.fire({
                 position: "top-center",
                 icon: "error",

@@ -55,7 +55,7 @@ const Register = () => {
                 showConfirmButton: false,
                 timer: 1500,
             });
-            console.log("User created successfully:", result.user);
+            // console.log("User created successfully:", result.user);
         } catch (error) {
             console.error("Error creating user:", error);
             Swal.fire({
