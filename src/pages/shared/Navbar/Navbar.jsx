@@ -69,6 +69,7 @@ const Navbar = () => {
                             <NavLink to="/" className={({ isActive }) => (isActive ? activeButtonClass : buttonClass)}>Home</NavLink>
                             <NavLink to="/marathons" className={({ isActive }) => (isActive ? activeButtonClass : buttonClass)}>Marathons</NavLink>
                             <NavLink to="/contact" className={({ isActive }) => (isActive ? activeButtonClass : buttonClass)}>Contact</NavLink>
+                            <NavLink to="/aboutUs" className={({ isActive }) => (isActive ? activeButtonClass : buttonClass)}>About Us</NavLink>
                             {user ? (
                                 <>
                                     <div className="flex flex-col lg:flex-row gap-2">

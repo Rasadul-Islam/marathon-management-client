@@ -16,6 +16,7 @@ import MarathonDitails from "../pages/MarathonDitails/MarathonDitails";
 import MarathonRegister from "../pages/MarathonRegister/MarathonRegister";
 import DashboardText from "../Components/DashboardText";
 import Contact from "../pages/Contact/Contact";
+import AboutUs from "../pages/AboutUs.jsx/AboutUs";
 
 const router = createBrowserRouter([
     {
@@ -47,6 +48,12 @@ const router = createBrowserRouter([
                 path:'/contact',
                 element: (
                         <Contact></Contact>
+                ) ,
+            },
+            {
+                path:'/aboutUs',
+                element: (
+                        <AboutUs></AboutUs>
                 ) ,
             },
             {

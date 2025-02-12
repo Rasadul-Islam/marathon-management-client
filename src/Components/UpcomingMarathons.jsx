@@ -57,18 +57,20 @@ const UpcomingMarathons = () => {
           768: { slidesPerView: 2 },
           1020: { slidesPerView: 3 },
         }}
-        autoplay={{ delay: 4000, disableOnInteraction: false }} 
+        autoplay={{ delay: 4000, disableOnInteraction: false }}
         pagination={{ clickable: true }}
-        loop={true} 
+        loop={true}
         className=""
       >
         {marathons.map((marathon, index) => (
           <SwiperSlide key={index}>
-            <div className="bg-lime-200 flex flex-col justify-between items-center border rounded-lg shadow-lg shadow-lime-300 overflow-hidden h-40 p-4">
-              <h3 className="text-xl font-semibold">{marathon.title}</h3>
-              <p className="text-sm text-gray-600">{marathon.date}</p>
-              <p className="text-sm text-gray-600">{marathon.location}</p>
-              <p className="mt-2 text-sm text-gray-800">{marathon.description}</p>
+            <div className="p-5 border-2 border-gray-300 rounded-lg bg-gray-50">
+              <div className="bg-lime-100 flex flex-col justify-between items-center border rounded-lg shadow-lg shadow-lime-300 overflow-hidden h-44 p-4">
+                <h3 className="text-xl font-semibold">{marathon.title}</h3>
+                <p className="text-sm text-gray-600">{marathon.date}</p>
+                <p className="text-sm text-gray-600">{marathon.location}</p>
+                <p className="mt-2 text-sm text-gray-800">{marathon.description}</p>
+              </div>
             </div>
           </SwiperSlide>
         ))}
