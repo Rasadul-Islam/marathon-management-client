@@ -9,12 +9,12 @@ const MarathonCard = ({ marathon }) => {
     const startMarathonDay = new Date(startMarathon).toLocaleDateString('en-GB')
     return (
         <div>
-            <div className="card bg-gray-100 w-[320px] h-[500px] shadow-xl border-2 border-gray-500 mx-auto">
+            <div className="card bg-gray-100 w-[360px] h-[500px] shadow-xl border-2 border-gray-500 mx-auto">
                 <figure>
                     <img
                         src={photoURL}
                         alt={title}
-                        className='w-72 h-52 mt-5 rounded-xl' />
+                        className='w-80 h-52 mt-5 rounded-xl' />
                 </figure>
                 <div className='px-5 mt-2'>
                     <h1 className='text-xl font-bold mt-2 capitalize'>{title}</h1>

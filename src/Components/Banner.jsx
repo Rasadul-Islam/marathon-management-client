@@ -26,7 +26,7 @@ const Banner = () => {
 
   return (
     <div>
-      <div className="carousel w-full mt-20 h-80 md:h-96 lg:h-[450px] rounded-b-xl relative">
+      <div className="carousel w-full mt-20 h-80 md:h-96 lg:h-[480px] rounded-b-xl relative">
         {/* Slide 1 */}
         <div
           id="slide1"
