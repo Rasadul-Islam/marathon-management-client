@@ -1,5 +1,6 @@
 import React from "react";
 import { FaFacebook, FaTwitter, FaLinkedin, FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const Contact = () => {
@@ -40,15 +41,15 @@ const Contact = () => {
 
                     {/* Social Links */}
                     <div className="flex gap-5 mt-4">
-                        <a href="#" className="text-white hover:text-lime-300 text-3xl">
+                        <Link target="_black" to="https://www.facebook.com/" className="text-white hover:text-lime-300 text-3xl">
                             <FaFacebook />
-                        </a>
-                        <a href="#" className="text-white hover:text-lime-300 text-3xl">
+                        </Link>
+                        <Link target="_black" to="https://x.com/" className="text-white hover:text-lime-300 text-3xl">
                             <FaTwitter />
-                        </a>
-                        <a href="#" className="text-white hover:text-lime-300 text-3xl">
+                        </Link>
+                        <Link target="_black" to="https://www.linkedin.com/" className="text-white hover:text-lime-300 text-3xl">
                             <FaLinkedin />
-                        </a>
+                        </Link>
                     </div>
                 </div>
 
