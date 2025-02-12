@@ -44,7 +44,7 @@ const Marathons = () => {
     };
 
     return (
-        <div className='container mx-auto mt-20 mb-10 py-10 bg-gray-300 rounded-lg'>
+        <div className='container mx-auto mt-20 mb-10 py-10 bg-gray-300 rounded-lg px-5'>
             <h1 className='text-2xl md:text-4xl text-center font-bold mb-10'>All Marathons:</h1>
             {showSortButton && (
                 <div className="text-end mx-10 mb-10">
@@ -56,7 +56,7 @@ const Marathons = () => {
                     </button>
                 </div>
             )}
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-10 max-w-6xl mx-auto'>
                     {marathons.map(marathon =>(
                         <MarathonCard key={marathon._id} marathon={marathon}></MarathonCard>
                         ))}

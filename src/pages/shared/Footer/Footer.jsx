@@ -18,10 +18,9 @@ const Footer = () => {
                         <ul className='text-gray-200 flex flex-col gap-1'>
                             <li><Link to='/'>Home</Link></li>
                             <li><Link to='/marathons'>Marathons</Link></li>
-                            <li><Link to='#'>My Campaigns</Link></li>
-                            <li><Link to='/dashboard'>Dashboard
-                            </Link></li>
                             <li><Link to='/contact'>Contact Us
+                            </Link></li>
+                            <li><Link to='/dashboard'>Dashboard
                             </Link></li>
                         </ul>
                     </div>
@@ -37,9 +36,9 @@ const Footer = () => {
                     <div className='text-center col-span-2 md:col-span-1'>
                         <h1 className='font-bold text-gray-100 text-lg mb-5 '>Stay Connected</h1>
                         <ul className='flex md:flex-col md:gap-2 text-4xl items-center justify-center gap-8'>
-                            <li><Link to='/' className='text-[#6cabff] hover:text-blue-100'><FaFacebook /></Link></li>
-                            <li><Link to='/' className='text-[#FF0000] hover:text-red-300' ><FaYoutube /></Link></li>
-                            <li className="bg-gradient-to-b from-blue-500 via-red-500 to-yellow-500 rounded-xl"><Link to='/' className="text-white hover:text-gray-400"><FaInstagram /></Link></li>
+                            <li><Link target='_black' to='https://www.facebook.com/' className='text-[#6cabff] hover:text-blue-100'><FaFacebook /></Link></li>
+                            <li><Link target='_black' to='https://www.youtube.com/' className='text-[#FF0000] hover:text-red-300' ><FaYoutube /></Link></li>
+                            <li className="bg-gradient-to-b from-blue-500 via-red-500 to-yellow-500 rounded-xl"><Link target='_black' to='https://www.instagram.com/' className="text-white hover:text-gray-400"><FaInstagram /></Link></li>
                         </ul>
                     </div>
                 </div>
