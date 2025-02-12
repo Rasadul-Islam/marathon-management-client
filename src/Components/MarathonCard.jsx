@@ -29,7 +29,7 @@ const MarathonCard = ({ marathon }) => {
                     </h1>
                     <div className='w-full'>
                         <Link to={`/marathonDitails/${_id}`}
-                            className='btn bg-lime-300 border-2 border-gray-400 font-bold text-lg w-full mt-2' >See Details
+                            className='btn bg-lime-300 hover:bg-lime-400 border-2 border-gray-400 font-bold text-lg w-full mt-2' >See Details
                         </Link>
                     </div>
                 </div>

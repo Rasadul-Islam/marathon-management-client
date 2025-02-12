@@ -14,7 +14,7 @@ const ErrorPage = () => {
             </h1>
             <h2 className='text-4xl my-2'>404 - page not found</h2>
             <p className='my-2'>The page you are looking for might have been removed <br/> had its name changed or is temporarily unavailable</p>
-            <Link to='/' className='btn uppercase font-bold text-lg mt-5 bg-lime-300 border-none'>Go to homepage</Link>
+            <Link to='/' className='btn uppercase font-bold text-lg mt-5 bg-lime-300 hover:bg-lime-400 border-none'>Go to homepage</Link>
         </div>
     );
 };

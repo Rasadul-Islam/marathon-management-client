@@ -86,7 +86,7 @@ const Contact = () => {
                         <button
                             type="submit"
                             onClick={handleSubmit}
-                            className="w-full bg-lime-300 text-gray-900 font-bold py-3 rounded-md hover:bg-lime-400 transition"
+                            className="w-full bg-lime-300 border-2 border-gray-400 text-gray-900 font-bold py-3 rounded-md hover:bg-lime-400 transition"
                         >
                             Send Message
                         </button>
